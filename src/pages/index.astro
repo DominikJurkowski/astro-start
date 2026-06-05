@@ -1,9 +1,13 @@
 ---
 import Welcome from '../components/Welcome.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Layout from '../layouts/Layout.astro';
-
 ---
-
+<!-- 
 <Layout>
 	<Welcome />
-</Layout>
+</Layout> -->
+
+<BaseLayout pageTitle="Home Page ex">
+	<Welcome />
+</BaseLayout>
