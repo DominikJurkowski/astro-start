@@ -1,11 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
-const pageTitle = "About";
+import Layout from "../layouts/Layout.astro";
+
+const identity = {
+  firstName: "John",
+  country: "United States",
+  occupation: "Technical Writer",
+  hobbies: ["reading", "writing", "coding"],
+};
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Node.js",
+  "Python",
+  "SQL",
+  "Git",
+  "Docker",
+  "Kubernetes",
+];
 ---
 
 <Layout>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-	<h1>{pageTitle}</h1>
-    <p>This is the {pageTitle} page.</p>
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <ul>
+    <li>Name: {identity.firstName}</li>
+    <li>Country: {identity.country}</li>
+    <li>Occupation: {identity.occupation}</li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>Hobbies: {identity.hobbies.join(", ")}</li>
+      )
+    }
+    Skills:
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
 </Layout>
