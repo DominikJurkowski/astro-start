@@ -1,13 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-const allPosts = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true })
-);
+// const allPosts = Object.values(
+//   import.meta.glob("./posts/*.md", { eager: true })
+// );
+const allPosts = await getCollection("blog");
 const pageTitle = "Blog";
 ---
 
@@ -16,7 +18,7 @@ const pageTitle = "Blog";
   <ul>
     {
       allPosts.map((post: any) => (
-        <BlogPost url={post.url} frontmatter={post.frontmatter} />
+        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
       ))
     }
   </ul>

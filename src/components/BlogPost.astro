@@ -1,9 +1,8 @@
 ---
 import "../styles/global.css";
-const { url, frontmatter } = Astro.props;
+const { url, title } = Astro.props;
 ---
 
-
 <li>
-    <a href={url}>{frontmatter.title}</a>
+    <a href={url}>{title}</a>
 </li>

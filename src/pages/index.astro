@@ -1,13 +1,10 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Layout from '../layouts/Layout.astro';
+import Greetings from '../components/Greetings.jsx';
 ---
-<!-- 
-<Layout>
-	<Welcome />
-</Layout> -->
 
 <BaseLayout pageTitle="Home Page ex">
 	<Welcome />
+	<Greetings client:load messages={['Hello', 'Hi', 'Hey', 'Howdy', 'Greetings']} />
 </BaseLayout>
